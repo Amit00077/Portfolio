@@ -1,6 +1,6 @@
 const projects = [
   {
-    title: 'ProcessHQ – AI-Powered Workflow & Operations Management Platform',
+    title: 'ProcessHQ – Workflow & Operations Management Platform',
     stack: ['Flutter', 'Dart', 'REST APIs', 'State Management', 'Enterprise Systems', 'Analytics'],
     desc: 'Enterprise mobility solution for streamlining workflows, automating recurring tasks, managing support tickets, and monitoring operational performance.',
     points: [
@@ -11,6 +11,35 @@ const projects = [
       'Optimized app performance, state management, and user experience across devices.',
       'Collaborated with backend and product teams to deliver enterprise-grade features.',
     ],
+    link: 'https://play.google.com/store/apps/details?id=com.ai.processhq.transfomer',
+  },
+  {
+    title: 'Invictaa Plus – Competitive Exam Preparation Platform',
+    stack: ['Flutter', 'Dart', 'BLoC', 'REST APIs', 'Firebase', 'Git'],
+    desc: 'Comprehensive e-learning platform for competitive and government examinations with mock tests, test series, performance analytics, and educational content.',
+    points: [
+      'Developed the complete cross-platform mobile application using Flutter.',
+      'Integrated REST APIs for authentication, course management, test submissions, and result processing.',
+      'Implemented scalable state management using the BLoC architecture.',
+      'Built responsive and reusable UI components for a consistent user experience.',
+      'Optimized application performance and API handling for smooth operation.',
+      'Contributed to an application with 100K+ downloads on the Google Play Store.',
+    ],
+    link: 'https://play.google.com/store/apps/details?id=com.invictaapro.app',
+  },
+  {
+    title: 'Bureau Veritas (BV Labs) – Field Operations & Driver Management Solution',
+    stack: ['Flutter', 'Dart', 'BLoC', 'REST APIs', 'Firebase', 'Git'],
+    desc: 'Mobile solution to streamline field operations, driver management, and task execution workflows with real-time activity tracking.',
+    points: [
+      'Developed and maintained the Flutter application for Android and iOS platforms.',
+      'Integrated backend APIs for task assignment, status tracking, and data synchronization.',
+      'Implemented secure authentication and role-based access workflows.',
+      'Built responsive interfaces optimized for field users and operational teams.',
+      'Improved application performance through efficient state management and code optimization.',
+      'Collaborated with backend and QA teams to deliver production-ready features.',
+    ],
+    link: 'https://play.google.com/store/apps/details?id=com.upgradeworkaboo.bvlabs',
   },
   {
     title: 'PrepOS – AI-Powered Preparation Goal & Task Tracker',
@@ -79,6 +108,12 @@ export default function Projects() {
                   <li key={pt}>{pt}</li>
                 ))}
               </ul>
+              {p.link && (
+                <a href={p.link} target="_blank" rel="noopener noreferrer" className="playstore-link">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3 20.5v-17c0-.6.5-1 1-1l.2-.1L16.6 12 4.2 21.6 4 21.5c-.5 0-1-.4-1-1zm15.9-7.6l3.6-2.1c.5-.3.9-.7.9-1.3s-.4-1-.9-1.3L18.9 6.3l-4.3 4.3 4.3 4.3zM6.6 3.4L16.2 9l-4.3 4.3L4 3.4h2.6zm0 17.2H4l7.9-9.9 4.3 4.3-9.6 5.6z"/></svg>
+                  Google Play
+                </a>
+              )}
             </div>
           ))}
         </div>
@@ -104,6 +139,13 @@ export default function Projects() {
         .project-card ul { margin-top: 0.6rem; padding-left: 1.1rem; }
         .project-card li { color: #94a3b8; font-size: 0.82rem; margin-bottom: 0.3rem; }
         .project-card li::marker { color: #38bdf8; }
+        .playstore-link {
+          display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1rem;
+          background: rgba(14,165,233,0.1); color: #38bdf8; padding: 0.4rem 0.85rem;
+          border-radius: 6px; font-size: 0.78rem; font-weight: 500; text-decoration: none;
+          transition: all 0.25s;
+        }
+        .playstore-link:hover { background: rgba(14,165,233,0.2); color: #7dd3fc; }
         @media (max-width: 768px) { .projects-grid { grid-template-columns: 1fr; } }
       `}</style>
     </section>
