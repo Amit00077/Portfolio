@@ -40,6 +40,7 @@ export default function Experience() {
         <div className="timeline">
           {experience.map((exp, i) => (
             <div key={i} className="timeline-item fade-up">
+              <div className="timeline-dot" />
               <div className="period">{exp.period}</div>
               <h3>{exp.company}</h3>
               <div className="role">{exp.role}</div>
@@ -53,29 +54,38 @@ export default function Experience() {
         </div>
       </div>
       <style>{`
-        .timeline { position: relative; padding-left: 2.5rem; }
+        .timeline { position: relative; padding-left: 2rem; }
         .timeline::before {
-          content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px;
-          width: 2px; background: linear-gradient(to bottom, #0ea5e9, #06b6d4);
+          content: ''; position: absolute; left: 11px; top: 12px; bottom: 12px;
+          width: 2px;
+          background: linear-gradient(to bottom, #14b8a6, #0d9488, #14b8a6);
+          border-radius: 2px;
         }
         .timeline-item {
-          position: relative; margin-bottom: 2.5rem;
-          padding: 1.5rem; border-radius: 12px;
-          background: rgba(14,165,233,0.06); border: 1px solid rgba(14,165,233,0.12);
-          transition: all 0.25s;
+          position: relative; margin-bottom: 2rem;
+          padding: 1.75rem; border-radius: 16px;
+          background: #fff; border: 1px solid #e2e8f0;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+          transition: all 0.3s;
         }
-        .timeline-item:hover { border-color: rgba(14,165,233,0.25); background: rgba(14,165,233,0.1); }
-        .timeline-item::before {
-          content: ''; position: absolute; left: -2.1rem; top: 1.8rem;
+        .timeline-item:hover {
+          box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+          border-color: #cbd5e1;
+          transform: translateX(4px);
+        }
+        .timeline-dot {
+          position: absolute; left: -1.55rem; top: 2rem;
           width: 14px; height: 14px; border-radius: 50%;
-          background: #0ea5e9; border: 3px solid #1a1a2e;
+          background: linear-gradient(135deg, #14b8a6, #0d9488);
+          border: 3px solid #f1f5f9;
+          box-shadow: 0 0 0 3px rgba(20,184,166,0.15);
         }
-        .timeline-item .period { font-size: 0.8rem; color: #38bdf8; font-weight: 600; margin-bottom: 0.25rem; }
-        .timeline-item h3 { font-size: 1.15rem; font-weight: 700; }
-        .timeline-item .role { color: #38bdf8; font-weight: 500; font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .timeline-item .period { font-size: 0.78rem; color: #14b8a6; font-weight: 600; margin-bottom: 0.25rem; letter-spacing: 0.02em; }
+        .timeline-item h3 { font-size: 1.15rem; font-weight: 700; color: #0f172a; margin-bottom: 0.15rem; }
+        .timeline-item .role { color: #64748b; font-weight: 500; font-size: 0.88rem; margin-bottom: 0.75rem; }
         .timeline-item ul { padding-left: 1.25rem; }
-        .timeline-item li { color: #94a3b8; font-size: 0.875rem; margin-bottom: 0.4rem; }
-        .timeline-item li::marker { color: #38bdf8; }
+        .timeline-item li { color: #475569; font-size: 0.875rem; margin-bottom: 0.4rem; line-height: 1.7; }
+        .timeline-item li::marker { color: #14b8a6; }
       `}</style>
     </section>
   )

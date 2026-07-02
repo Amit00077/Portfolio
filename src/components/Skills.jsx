@@ -47,16 +47,32 @@ export default function Skills() {
       </div>
       <style>{`
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-        .skill-group { background: rgba(14,165,233,0.06); border: 1px solid rgba(14,165,233,0.12); border-radius: 12px; padding: 1.5rem; }
-        .skill-group h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #38bdf8; margin-bottom: 1rem; }
+        .skill-group {
+          background: #fff; border: 1px solid #e2e8f0;
+          border-radius: 16px; padding: 1.5rem;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+          transition: all 0.3s;
+        }
+        .skill-group:hover {
+          box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+          border-color: #cbd5e1;
+        }
+        .skill-group h4 {
+          font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.5px;
+          color: #14b8a6; margin-bottom: 1rem; font-weight: 600;
+        }
         .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
         .skill-tags span {
-          background: rgba(14,165,233,0.08); color: #cbd5e1;
-          padding: 0.35rem 0.9rem; border-radius: 20px;
-          font-size: 0.82rem; border: 1px solid rgba(14,165,233,0.1);
-          transition: all 0.2s;
+          background: #f8fafc; color: #334155;
+          padding: 0.35rem 0.9rem; border-radius: 8px;
+          font-size: 0.82rem; border: 1px solid #e2e8f0;
+          transition: all 0.25s;
         }
-        .skill-tags span:hover { border-color: #0ea5e9; background: rgba(14,165,233,0.15); }
+        .skill-tags span:hover {
+          border-color: #14b8a6; color: #14b8a6;
+          background: #f0fdfa;
+          transform: translateY(-1px);
+        }
       `}</style>
     </section>
   )

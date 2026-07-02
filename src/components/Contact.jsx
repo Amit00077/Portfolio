@@ -2,11 +2,36 @@ import { useState } from 'react'
 
 export default function Contact() {
   const [sent, setSent] = useState(false)
+  const [error, setError] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSent(true)
-    setTimeout(() => setSent(false), 4000)
+    const form = e.target
+    const data = new FormData(form)
+
+    setError(false)
+    setSent(false)
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      })
+      if (res.ok) {
+        setSent(true)
+        form.reset()
+      } else {
+        setError(true)
+      }
+    } catch {
+      setError(true)
+    }
+
+    setTimeout(() => {
+      setSent(false)
+      setError(false)
+    }, 5000)
   }
 
   return (
@@ -35,47 +60,49 @@ export default function Contact() {
               </a>
             </div>
           </div>
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form className="contact-form" onSubmit={handleSubmit} action="https://formspree.io/f/mwvdwnno">
             <div className="form-row">
-              <input type="text" placeholder="Your Name" required />
-              <input type="email" placeholder="Your Email" required />
+              <input type="text" name="name" placeholder="Your Name" required />
+              <input type="email" name="email" placeholder="Your Email" required />
             </div>
-            <input type="text" placeholder="Subject" required />
-            <textarea rows="5" placeholder="Your Message" required />
+            <input type="text" name="subject" placeholder="Subject" required />
+            <textarea name="message" rows="5" placeholder="Your Message" required />
             <button type="submit" className="btn btn-primary">
-              {sent ? <><i className="fas fa-check" /> Sent!</> : <><i className="fas fa-paper-plane" /> Send Message</>}
+              {error ? <><i className="fas fa-exclamation-triangle" /> Failed</> : sent ? <><i className="fas fa-check" /> Sent!</> : <><i className="fas fa-paper-plane" /> Send Message</>}
             </button>
           </form>
         </div>
       </div>
       <style>{`
-        #contact { background: #1a1a2e; }
+        #contact { background: #f8fafc; }
         .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: start; }
-        .contact-info h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; }
-        .contact-info p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .contact-info h3 { font-size: 1.3rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+        .contact-info p { color: #475569; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8; }
         .contact-details { display: flex; flex-direction: column; gap: 0.75rem; }
         .contact-details a {
-          color: #cbd5e1; text-decoration: none; font-size: 0.9rem;
+          color: #475569; text-decoration: none; font-size: 0.88rem;
           display: inline-flex; align-items: center; gap: 0.75rem;
-          padding: 0.6rem 1rem; border: 1px solid rgba(14,165,233,0.15);
-          border-radius: 8px; transition: all 0.25s;
+          padding: 0.7rem 1rem; border: 1px solid #e2e8f0;
+          border-radius: 12px; transition: all 0.3s;
+          background: #fff;
         }
-        .contact-details a:hover { border-color: #0ea5e9; background: rgba(14,165,233,0.06); color: #fff; }
-        .contact-details a i { color: #38bdf8; width: 16px; text-align: center; }
+        .contact-details a:hover { border-color: #14b8a6; color: #0f172a; transform: translateX(4px); }
+        .contact-details a i { color: #14b8a6; width: 16px; text-align: center; font-size: 0.85rem; }
         .contact-form { display: flex; flex-direction: column; gap: 1rem; }
         .form-row { display: flex; gap: 1rem; }
         .contact-form input, .contact-form textarea {
-          width: 100%; padding: 0.85rem 1rem; border-radius: 8px;
-          border: 1px solid rgba(14,165,233,0.15);
-          background: rgba(14,165,233,0.04); color: #e2e8f0;
+          width: 100%; padding: 0.85rem 1rem; border-radius: 12px;
+          border: 1px solid #e2e8f0;
+          background: #fff; color: #1e293b;
           font-family: inherit; font-size: 0.9rem; outline: none;
-          transition: border-color 0.25s;
+          transition: all 0.25s;
         }
         .contact-form input:focus, .contact-form textarea:focus {
-          border-color: #0ea5e9;
+          border-color: #14b8a6;
+          box-shadow: 0 0 0 3px rgba(20,184,166,0.08);
         }
         .contact-form input::placeholder, .contact-form textarea::placeholder {
-          color: #64748b;
+          color: #94a3b8;
         }
         .contact-form button { align-self: flex-start; cursor: pointer; }
         @media (max-width: 768px) {

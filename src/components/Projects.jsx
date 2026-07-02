@@ -119,33 +119,43 @@ export default function Projects() {
         </div>
       </div>
       <style>{`
-        #projects { background: #16213e; }
+        #projects {
+          background: linear-gradient(135deg, #0c1222 0%, #1a1a2e 50%, #0f172a 100%);
+        }
+        #projects .section-title { color: #f1f5f9; }
+        #projects .section-sub { color: #94a3b8; }
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; }
         .project-card {
-          background: rgba(14,165,233,0.06); border: 1px solid rgba(14,165,233,0.12);
-          border-radius: 14px; padding: 1.75rem; transition: all 0.3s;
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 16px; padding: 1.75rem; transition: all 0.35s;
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
         }
         .project-card:hover {
-          transform: translateY(-4px); border-color: rgba(14,165,233,0.3);
-          box-shadow: 0 12px 40px rgba(14,165,233,0.12);
+          transform: translateY(-6px);
+          border-color: rgba(45,212,191,0.2);
+          box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+          background: rgba(255,255,255,0.07);
         }
         .project-card .stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
         .project-card .stack span {
-          background: rgba(14,165,233,0.1); color: #38bdf8;
-          font-size: 0.7rem; font-weight: 500; padding: 0.2rem 0.6rem; border-radius: 4px;
+          background: rgba(45,212,191,0.08); color: #5eead4;
+          font-size: 0.68rem; font-weight: 500; padding: 0.2rem 0.6rem; border-radius: 6px;
+          border: 1px solid rgba(45,212,191,0.1);
         }
-        .project-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; }
+        .project-card h3 { font-size: 1.05rem; font-weight: 700; color: #f1f5f9; margin-bottom: 0.6rem; line-height: 1.4; }
         .project-card p { color: #94a3b8; font-size: 0.85rem; line-height: 1.65; }
         .project-card ul { margin-top: 0.6rem; padding-left: 1.1rem; }
-        .project-card li { color: #94a3b8; font-size: 0.82rem; margin-bottom: 0.3rem; }
-        .project-card li::marker { color: #38bdf8; }
+        .project-card li { color: #94a3b8; font-size: 0.82rem; margin-bottom: 0.3rem; line-height: 1.65; }
+        .project-card li::marker { color: #2dd4bf; }
         .playstore-link {
           display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1rem;
-          background: rgba(14,165,233,0.1); color: #38bdf8; padding: 0.4rem 0.85rem;
-          border-radius: 6px; font-size: 0.78rem; font-weight: 500; text-decoration: none;
-          transition: all 0.25s;
+          background: rgba(45,212,191,0.08); color: #5eead4; padding: 0.4rem 0.85rem;
+          border-radius: 8px; font-size: 0.78rem; font-weight: 500; text-decoration: none;
+          border: 1px solid rgba(45,212,191,0.12); transition: all 0.3s;
         }
-        .playstore-link:hover { background: rgba(14,165,233,0.2); color: #7dd3fc; }
+        .playstore-link:hover { background: rgba(45,212,191,0.15); color: #99f6e4; }
         @media (max-width: 768px) { .projects-grid { grid-template-columns: 1fr; } }
       `}</style>
     </section>

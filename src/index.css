@@ -8,24 +8,27 @@ html {
 }
 body {
   font-family: 'Inter', sans-serif;
-  background: #1a1a2e;
-  color: #e2e8f0;
-  line-height: 1.6;
+  background: #f8fafc;
+  color: #1e293b;
+  line-height: 1.7;
   overflow-x: hidden;
 }
 ::selection {
-  background: #0ea5e9;
+  background: #14b8a6;
   color: #fff;
 }
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #1a1a2e;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0ea5e9;
+  background: #94a3b8;
   border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
 }
 
 .container {
@@ -34,22 +37,21 @@ body {
 }
 
 section {
-  padding: 96px 2rem 64px;
+  padding: 100px 2rem 72px;
+  position: relative;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 .section-title {
   font-size: 2rem;
   font-weight: 700;
-  display: inline-block;
-  background: linear-gradient(135deg, #38bdf8, #06b6d4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 0.5rem;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
 }
 
 .section-sub {
@@ -61,14 +63,16 @@ section {
 
 .fade-up {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-up.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+
 
 @media (max-width: 768px) {
   section {

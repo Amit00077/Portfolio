@@ -1,13 +1,16 @@
 export default function Hero() {
   return (
     <section id="hero" className="hero">
+      <div className="hero-glow hero-glow-1" />
+      <div className="hero-glow hero-glow-2" />
+      <div className="hero-glow hero-glow-3" />
       <div className="container hero-content">
         <div className="hero-text">
           <div className="hero-greeting">Hello, I'm</div>
           <h1>
             Amit <span>Baliyan</span>
           </h1>
-          <p className="tagline">Software Engineer — Flutter &amp; Full-Stack Developer</p>
+          <p className="tagline">Software Engineer</p>
           <div className="hero-contact">
             <a href="tel:+918937915116"><i className="fas fa-phone" /> +91-8937915116</a>
             <a href="mailto:amitbaliyan071@gmail.com"><i className="fas fa-envelope" /> amitbaliyan071@gmail.com</a>
@@ -20,7 +23,10 @@ export default function Hero() {
           </div>
         </div>
         <div className="hero-visual">
-          <div className="hero-avatar">AB</div>
+          <div className="hero-avatar">
+            <div className="hero-avatar-ring" />
+            <img src="/Amit.png" alt="Amit Baliyan" />
+          </div>
         </div>
       </div>
       <style>{`
@@ -28,86 +34,111 @@ export default function Hero() {
           min-height: 100vh; display: flex; align-items: center;
           position: relative; overflow: hidden;
           padding-top: 80px;
+          background: linear-gradient(135deg, #0c1222 0%, #0f2a2a 40%, #134e4a 100%);
         }
-        #hero::before {
-          content: ''; position: absolute; top: -40%; left: -20%;
-          width: 70%; height: 100%;
-          background: radial-gradient(circle, rgba(14,165,233,0.12) 0%, transparent 70%);
-          pointer-events: none;
+        .hero-glow {
+          position: absolute; border-radius: 50%;
+          pointer-events: none; filter: blur(80px);
         }
-        #hero::after {
-          content: ''; position: absolute; bottom: -30%; right: -20%;
+        .hero-glow-1 {
+          top: -20%; left: -10%;
           width: 60%; height: 80%;
-          background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%);
-          pointer-events: none;
+          background: radial-gradient(circle, rgba(20,184,166,0.12), transparent 70%);
+        }
+        .hero-glow-2 {
+          bottom: -30%; right: -10%;
+          width: 50%; height: 70%;
+          background: radial-gradient(circle, rgba(45,212,191,0.08), transparent 70%);
+        }
+        .hero-glow-3 {
+          top: 40%; right: 30%;
+          width: 30%; height: 40%;
+          background: radial-gradient(circle, rgba(20,184,166,0.06), transparent 70%);
         }
         .hero-content { position: relative; z-index: 1; display: flex; align-items: center; gap: 4rem; }
         .hero-text { flex: 1; }
         .hero-greeting {
-          font-size: 0.9rem; color: #38bdf8; font-weight: 600;
-          text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem;
+          font-size: 0.85rem; color: #5eead4; font-weight: 600;
+          text-transform: uppercase; letter-spacing: 3px; margin-bottom: 0.75rem;
+          opacity: 0.9;
         }
         .hero-text h1 {
-          font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 800;
-          line-height: 1.1; margin-bottom: 0.75rem;
+          font-size: clamp(2.6rem, 5.5vw, 4.2rem); font-weight: 800;
+          line-height: 1.05; margin-bottom: 0.75rem;
+          color: #f1f5f9; letter-spacing: -0.03em;
         }
         .hero-text h1 span {
-          background: linear-gradient(135deg, #38bdf8, #06b6d4);
+          background: linear-gradient(135deg, #2dd4bf, #14b8a6, #0d9488);
           -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        .tagline { font-size: 1.15rem; color: #94a3b8; margin-bottom: 1.5rem; }
-        .hero-contact { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+        .tagline { font-size: 1.1rem; color: #94a3b8; margin-bottom: 2rem; font-weight: 400; }
+        .hero-contact { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem; }
         .hero-contact a {
-          color: #cbd5e1; text-decoration: none; font-size: 0.9rem;
+          color: #cbd5e1; text-decoration: none; font-size: 0.85rem;
           display: inline-flex; align-items: center; gap: 0.5rem;
-          padding: 0.5rem 1rem; border: 1px solid rgba(14,165,233,0.2);
-          border-radius: 8px; transition: all 0.25s;
+          padding: 0.5rem 1rem;
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 10px; transition: all 0.3s;
+          background: rgba(255,255,255,0.04);
+          backdrop-filter: blur(4px);
         }
-        .hero-contact a:hover { border-color: #0ea5e9; background: rgba(14,165,233,0.08); color: #fff; }
-        .hero-contact a i { color: #38bdf8; width: 16px; }
+        .hero-contact a:hover {
+          border-color: rgba(45,212,191,0.3);
+          background: rgba(45,212,191,0.08);
+          color: #fff;
+          transform: translateY(-1px);
+        }
+        .hero-contact a i { color: #2dd4bf; width: 16px; font-size: 0.8rem; }
         .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
         .btn {
           display: inline-flex; align-items: center; gap: 0.5rem;
-          padding: 0.75rem 1.75rem; border-radius: 8px; font-weight: 600;
+          padding: 0.8rem 1.8rem; border-radius: 10px; font-weight: 600;
           font-size: 0.9rem; text-decoration: none; cursor: pointer;
-          border: none; transition: all 0.25s;
+          border: none; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          letter-spacing: 0.01em;
         }
         .btn-primary {
-          background: linear-gradient(135deg, #0ea5e9, #0891b2);
+          background: linear-gradient(135deg, #14b8a6, #0d9488);
           color: #fff;
+          box-shadow: 0 4px 20px rgba(20,184,166,0.25);
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(14,165,233,0.3); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(20,184,166,0.35); }
         .btn-outline {
           background: transparent; color: #e2e8f0;
-          border: 1px solid rgba(14,165,233,0.3);
+          border: 1px solid rgba(255,255,255,0.15);
         }
-        .btn-outline:hover { border-color: #0ea5e9; background: rgba(14,165,233,0.08); }
+        .btn-outline:hover { border-color: #14b8a6; background: rgba(20,184,166,0.08); color: #2dd4bf; }
         .hero-visual { flex: 0 0 260px; }
         .hero-avatar {
           width: 260px; height: 260px;
           border-radius: 50%;
-          background: linear-gradient(135deg, rgba(14,165,233,0.2), rgba(6,182,212,0.2));
-          border: 2px solid rgba(14,165,233,0.35);
-          display: flex; align-items: center; justify-content: center;
-          font-size: 5rem; font-weight: 700; color: #38bdf8;
           position: relative;
+          overflow: hidden;
         }
-        .hero-avatar::before {
-          content: ''; position: absolute; inset: -8px;
+        .hero-avatar-ring {
+          position: absolute; inset: -4px;
           border-radius: 50%;
-          border: 1px solid rgba(14,165,233,0.1);
-          animation: pulse-ring 3s ease-in-out infinite;
+          background: linear-gradient(135deg, rgba(45,212,191,0.5), rgba(20,184,166,0.2), rgba(45,212,191,0.5));
+          z-index: 0;
+          animation: rotate-ring 6s linear infinite;
         }
-        @keyframes pulse-ring {
-          0%, 100% { transform: scale(1); opacity: 0.5; }
-          50% { transform: scale(1.05); opacity: 0.2; }
+        .hero-avatar img {
+          position: relative; z-index: 1;
+          width: calc(100% - 8px); height: calc(100% - 8px);
+          object-fit: cover; border-radius: 50%;
+          display: block; margin: 4px;
+          box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+        }
+        @keyframes rotate-ring {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
         }
         @media (max-width: 768px) {
-          .hero-content { flex-direction: column-reverse; text-align: center; }
+          .hero-content { flex-direction: column-reverse; text-align: center; gap: 2.5rem; }
           .hero-contact { justify-content: center; }
           .hero-cta { justify-content: center; }
           .hero-visual { flex: 0 0 auto; }
-          .hero-avatar { width: 180px; height: 180px; font-size: 3.5rem; }
+          .hero-avatar { width: 180px; height: 180px; }
         }
       `}</style>
     </section>

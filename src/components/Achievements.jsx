@@ -16,17 +16,35 @@ export default function Achievements() {
         <div className="achievements-list">
           {achievements.map((a, i) => (
             <div key={i} className="ach-item fade-up">
-              <i className={`fas ${a.icon}`} />
+              <div className="ach-icon"><i className={`fas ${a.icon}`} /></div>
               <p>{a.text}</p>
             </div>
           ))}
         </div>
       </div>
       <style>{`
-        .achievements-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
-        .ach-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem; border-radius: 10px; background: rgba(14,165,233,0.06); border: 1px solid rgba(14,165,233,0.12); }
-        .ach-item i { color: #38bdf8; font-size: 1.1rem; margin-top: 0.1rem; }
-        .ach-item p { color: #94a3b8; font-size: 0.85rem; }
+        .achievements-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+        .ach-item {
+          display: flex; align-items: flex-start; gap: 1rem;
+          padding: 1.25rem; border-radius: 14px;
+          background: #fff; border: 1px solid #e2e8f0;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+          transition: all 0.3s;
+        }
+        .ach-item:hover {
+          box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+          border-color: #cbd5e1;
+          transform: translateY(-2px);
+        }
+        .ach-icon {
+          flex-shrink: 0; width: 40px; height: 40px;
+          display: flex; align-items: center; justify-content: center;
+          border-radius: 10px;
+          background: linear-gradient(135deg, rgba(20,184,166,0.08), rgba(13,148,136,0.08));
+          border: 1px solid rgba(20,184,166,0.12);
+        }
+        .ach-icon i { color: #14b8a6; font-size: 1rem; }
+        .ach-item p { color: #475569; font-size: 0.85rem; line-height: 1.65; }
       `}</style>
     </section>
   )
